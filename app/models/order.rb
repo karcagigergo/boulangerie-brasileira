@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
+  has_many :products
   belongs_to :basket
-  belongs_to :product
 end
