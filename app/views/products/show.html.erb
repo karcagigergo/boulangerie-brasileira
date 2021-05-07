@@ -1,0 +1,10 @@
+<h1>Products#show</h1>
+<h2><%= @product.name %></h2>
+<p><%= @product.description %></p>
+
+<p><%= link_to 'Edit', edit_product_path %></p>
+<p><%= link_to "Delete #{@product.name}",
+            product_path(@product),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %></p>
+<p><%= link_to 'Back', products_path %></p>
