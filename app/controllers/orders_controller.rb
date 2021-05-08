@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
     end
 
     @order = Order.new
-    @order.basket = basket
+    @order.basket = @basket
     @order.product = Product.find(params[:product_id])
 
     if @order.save
