@@ -17,6 +17,8 @@
   </div>
   <div class="d-flex justify-content-start pb-3">
         <%= link_to 'Add a New product', new_product_path, class: "btn btn-outline-primary mr-3" %>
-        <%= link_to 'See my basket', basket_path(current_user.basket), class: "btn btn-primary" %>
+        <% if current_user && current_user.basket %>
+          <%= link_to 'See my basket', basket_path(current_user.basket), class: "btn btn-primary" %>
+        <% end %>
   </div>
 </div>
