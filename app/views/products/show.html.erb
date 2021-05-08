@@ -17,6 +17,11 @@
                       data: { confirm: "Are you sure?" },
                       class: "btn btn-danger" %></p>
           <p><%= link_to 'Back', products_path, class: "btn btn-primary" %></p>
+          <p><%= link_to 'Add to basket',
+            product_orders_path(@product),
+            method: :create,
+            data: { confirm: "Are you sure?" },
+            class: "btn btn-success" %></p>
         </div>
       </div>
     </div>
