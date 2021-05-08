@@ -1,3 +1,5 @@
 <h1>Baskets#show</h1>
-<p>Find me in app/views/baskets/show.html.erb</p>
+<ul><% @basket.orders.each do |order| %>
+  <li><%= order.product.name %></li>
+<% end %></ul>
 

@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
     order.product = Product.find(params[:product_id])
 
     if order.save
-      redirect_to products_path
+      redirect_to basket_path(basket)
     else
       render 'products/show'
     end
