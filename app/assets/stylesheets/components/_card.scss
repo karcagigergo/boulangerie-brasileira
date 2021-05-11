@@ -3,7 +3,6 @@
   overflow: hidden;
   background: white;
   transition: box-shadow .2s;
-  border: 0.3px solid rgb(219, 219, 219);
   border-radius: 4px;
 
   &:hover {
@@ -24,9 +23,10 @@
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 14px;
   opacity: .7;
   margin: 0;
+  font-weight: 400;
 }
 
 
@@ -38,3 +38,4 @@
 #killed-hover-oncard {
   box-shadow: none;
 }
+
