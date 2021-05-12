@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    order.destroy
+    @order.destroy
 
     redirect_to basket_path(current_user.basket)
   end
@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
  private
 
   def set_orders
-    order = Order.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
 end
