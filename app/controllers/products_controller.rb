@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_products, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
+    @products = policy_scope(Product).order(created_at: :desc)
   end
 
   def show
@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+    authorize @product
     @product.save
     redirect_to product_path(@product)
   end
