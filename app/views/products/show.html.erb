@@ -8,15 +8,16 @@
             <h2 class= "mb-3"><%= @product.name %></h2>
             <p style="font-size: 16px;"> R$ <%= @product.price %></p>
             <p><%= @product.description %></p>
+            <p>Quantity: <%= @product.available_quantity %> pcs</p>
+            <%= form_tag product_orders_path(@product), method: :create do %>
+              <%= number_field_tag :quantity,
+                params[:quantity]
+              %>
+              <%= submit_tag "Add to basket", class: "btn btn-outline-dark" %>
+            <% end %>
           </div>
         </div>
         <div class="d-flex justify-content-around mb-3 icons">
-          <%= link_to product_orders_path(@product),
-              method: :create,
-              data: { confirm: "Are you sure?" },
-              title: "Add to basket" do %>
-              <i class="fas fa-shopping-basket"></i>
-          <% end %>
           <%= link_to edit_product_path,
               title: "Edit product" do %>
             <i class="fas fa-edit"></i>
@@ -35,3 +36,10 @@
     </div>
   </div>
 </div>
+
+<%# <%= link_to product_orders_path(@product),
+              method: :create,
+              data: { confirm: "Are you sure?" },
+              title: "Add to basket" do %>
+              <%# <i class="fas fa-shopping-basket"></i>
+          <% end %> 
