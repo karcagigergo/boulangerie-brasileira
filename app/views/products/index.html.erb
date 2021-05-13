@@ -1,8 +1,13 @@
+
 <div class="container mt-5">
   <div class="row">
     <% @products.each do |product| %>
       <div class="col-12 col-md-6 col-lg-6">
-        <div class="card-product mb-4" style="background-size: cover; background-image: url(https://source.unsplash.com/featured/?{<%product.name%>})">
+
+        <div class="card-product mb-4">
+
+            <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+
           <div class="card-product-infos">
             <div>
               <h2 class= "mb-3"><%= link_to product.name, product_path(product), class: "text-decoration-none" %></h2>
