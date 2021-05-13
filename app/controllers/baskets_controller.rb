@@ -1,7 +1,9 @@
 class BasketsController < ApplicationController
   before_action :set_baskets, only: [:show, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   def show
+    authorize @basket
   end
 
   def update

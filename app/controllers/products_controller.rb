@@ -6,22 +6,24 @@ require "json"
   before_action :set_products, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
+    @products = policy_scope(Product).order(created_at: :desc)
   end
 
   def show
+    authorize @product
   end
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+    authorize @product
     seed
-    @product.save!
-
+    @product.save
     redirect_to product_path(@product)
   end
 
