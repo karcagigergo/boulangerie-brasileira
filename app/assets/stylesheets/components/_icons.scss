@@ -1,0 +1,18 @@
+.icons a {
+  color: black;
+  opacity: 0.6;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+
+.icons a:hover { 
+  opacity: 1;
+}
+
+a .fa-trash-alt {
+  color: #D23333;
+}
+a .fa-shopping-basket {
+  color: rgb(67, 255, 67);
+}

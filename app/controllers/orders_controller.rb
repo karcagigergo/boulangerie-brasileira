@@ -6,19 +6,19 @@ class OrdersController < ApplicationController
     #has the user a basket already?
     #if the user has no basket, create one
     #if user has basket, get the basket id
-
     if current_user.basket
-      @basket = current_user.basket
+      basket = current_user.basket
     else
-      @basket = Basket.create(user: current_user)
+      basket = Basket.create(user: current_user)
     end
 
-    @order = Order.new
-    @order.basket = @basket
-    @order.product = Product.find(params[:product_id])
+    order = Order.new
+    order.basket = basket
+    order.product = Product.find(params[:product_id])
+    order.quantity = params[:quantity].to_i
 
-    if @order.save
-      redirect_to basket_path(@basket)
+    if order.save
+      redirect_to basket_path(basket)
     else
       render 'products/show'
     end

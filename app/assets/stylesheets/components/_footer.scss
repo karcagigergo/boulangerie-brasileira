@@ -11,19 +11,20 @@
   align-items: center;
 }
 .footer-links a {
-  color: black;
-  opacity: 0.3;
+  color: $dark;
+  opacity: 0.5;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
 }
-.footer-links a:hover { 
+.footer-links a:hover {
+  color: $dark;
   opacity: 1;
 }
-.footer .fa-heart {
-  color: #D23333;
+.footer .fa-copyright {
+  color: $dark;
 }
 .footer-copyright {
-  color: black;
-  opacity: 0.3;
+  color: $dark;
+  opacity: 0.7;
 }
