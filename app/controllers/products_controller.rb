@@ -26,14 +26,14 @@ require "json"
   end
 
   def edit
+    @product.photo = nil
     @product.user = current_user
-
+    seed
   end
 
   def update
     @product.update(product_params)
-    @product.photo = nil
-    seed
+
     redirect_to product_path(@product)
   end
 
