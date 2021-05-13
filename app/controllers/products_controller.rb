@@ -7,10 +7,12 @@ class ProductsController < ApplicationController
   end
 
   def show
+    authorize @product
   end
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def create

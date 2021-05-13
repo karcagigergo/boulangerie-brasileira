@@ -5,14 +5,22 @@ class ProductPolicy < ApplicationPolicy
     end
   end
 
-  attr_reader :current_user, :role
-
-  def initialize(current_user, role)
-    @current_user = current_user
-    @role = role
+  def show?
+    true
   end
 
   def create?
-    true
+    user.role == 'Baker' if user
   end
+
+  def update?
+    record.user == user
+    # - record: the restaurant passed to the `authorize` method in controller
+    # - user:   the `current_user` signed in with Devise.
+  end
+
+  def destroy?
+    record.user == user
+  end
+
 end

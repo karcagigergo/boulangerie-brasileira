@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   # before_action :check_basket, only: [:create]
   before_action :set_orders, only: [:destroy]
+  skip_before_action :verify_authenticity_token
 
   def create
     #has the user a basket already?
@@ -16,7 +17,7 @@ class OrdersController < ApplicationController
     order.basket = basket
     order.product = Product.find(params[:product_id])
     order.quantity = params[:quantity].to_i
-
+    authorize order
     if order.save
       redirect_to basket_path(basket)
     else
@@ -26,7 +27,7 @@ class OrdersController < ApplicationController
 
   def destroy
     @order.destroy
-
+    authorize @order
     redirect_to basket_path(current_user.basket)
   end
 
