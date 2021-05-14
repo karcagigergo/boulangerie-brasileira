@@ -1,22 +1,32 @@
+
+
 <div class="container py-5">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="card-product mb-4" id="killed-hover-oncard">
-        <%= image_tag "bread.jpg", alt: @product.name %>
+
+
+          <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+
+
+
         <div class="card-product-infos">
           <div>
             <h2 class= "mb-3"><%= @product.name %></h2>
             <p style="font-size: 16px;"> R$ <%= @product.price %></p>
             <p><%= @product.description %></p>
+            <p>Quantity: <%= @product.available_quantity %> pcs</p>
+            <% if policy(Order).create? %>
+              <%= form_tag product_orders_path(@product), method: :create do %>
+                <%= number_field_tag :quantity,
+                  params[:quantity]
+                %>
+                <%= submit_tag "Add to basket", class: "btn btn-outline-primary" %>
+              <% end %>
+            <% end %>
           </div>
         </div>
         <div class="d-flex justify-content-around mb-3 icons">
-          <%= link_to product_orders_path(@product),
-              method: :create,
-              data: { confirm: "Are you sure?" },
-              title: "Add to basket" do %>
-              <i class="fas fa-shopping-basket"></i>
-          <% end %>
           <%= link_to edit_product_path,
               title: "Edit product" do %>
             <i class="fas fa-edit"></i>
@@ -35,3 +45,4 @@
     </div>
   </div>
 </div>
+
