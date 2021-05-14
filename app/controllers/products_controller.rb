@@ -37,14 +37,13 @@ require "json"
   def update
     authorize @product
     @product.update(product_params)
-
+    authorize @product
     redirect_to product_path(@product)
   end
 
   def destroy
     @product.destroy
     authorize @product
-
     redirect_to products_path
   end
 

@@ -16,11 +16,13 @@
             <p style="font-size: 16px;"> R$ <%= @product.price %></p>
             <p><%= @product.description %></p>
             <p>Quantity: <%= @product.available_quantity %> pcs</p>
-            <%= form_tag product_orders_path(@product), method: :create do %>
-              <%= number_field_tag :quantity,
-                params[:quantity]
-              %>
-              <%= submit_tag "Add to basket", class: "btn btn-outline-primary" %>
+            <% if policy(Order).create? %>
+              <%= form_tag product_orders_path(@product), method: :create do %>
+                <%= number_field_tag :quantity,
+                  params[:quantity]
+                %>
+                <%= submit_tag "Add to basket", class: "btn btn-outline-primary" %>
+              <% end %>
             <% end %>
           </div>
         </div>
@@ -32,21 +34,13 @@
           <%= link_to products_path, title: "Back" do %>
             <i class="fas fa-undo-alt"></i>
           <% end %>
-          <%= link_to product_path(@product),
-                      method: :delete,
-                      data: { confirm: "Are you sure?" },
-                      title: "Delete" do %>
-            <i class="far fa-trash-alt"></i>
-          <% end %>
+          <button id="sweet-alert" class="btn btn-outline-danger">D</button>
+            <%= link_to "", product_path(@product), method: :delete, id: "delete-link", class: "hidden" %> 
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<%# <%= link_to product_orders_path(@product),
-              method: :create,
-              data: { confirm: "Are you sure?" },
-              title: "Add to basket" do %>
-              <%# <i class="fas fa-shopping-basket"></i>
-          <% end %> 
+
+

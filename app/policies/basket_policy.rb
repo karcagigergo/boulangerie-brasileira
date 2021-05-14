@@ -7,7 +7,7 @@ class BasketPolicy < ApplicationPolicy
 
 
   def show?
-    record.user == user
+    user.role == 'Customer' if user
   end
 
 end

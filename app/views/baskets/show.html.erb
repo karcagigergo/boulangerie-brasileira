@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5 content">
   <h1>My Basket</h1>
     <div class="row">
       <% @basket.orders.each do |order| %>
@@ -8,11 +8,8 @@
               <div>
                 <h2 class= "mb-3"><%= order.product.name %></h2>
                 <p style="font-size: 16px;">R$ <%= order.product.price %> - Qty: <%= order.quantity  %></p>
-                <%= link_to "Delete",
-                  order_path(order),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" },
-                  class: "btn btn-outline-warning mt-2" %>
+                <button id="sweet-alert" class="btn btn-outline-warning mt-2">Delete</button>
+                  <%= link_to "", order_path(order), method: :delete, id: "delete-link", class: "hidden" %>
               </div>
             </div>
           </div>
