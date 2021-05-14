@@ -9,12 +9,8 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <% if current_user.basket %>
-            <%= link_to "Basket", basket_path(current_user.basket), class: "nav-link" %>
-          <% end %>
           <%= link_to "Home", "/", class: "nav-link" %>
         </li>
-
         <% if policy(Basket).show? %>
           <li class="nav-item active">
             <%= link_to "Basket", basket_path(current_user.basket), class: "nav-link" %>
