@@ -1,9 +1,9 @@
 //CARD-MOVIE(TRIPGENYÓ)
 .card-product {
   overflow: hidden;
-  background: white;
+  background: #F8EABB;
   transition: box-shadow .2s;
-  border-radius: 4px;
+  border-radius: 8px;
 
   &:hover {
     box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.25);
