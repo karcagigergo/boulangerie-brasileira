@@ -16,11 +16,13 @@
             <p style="font-size: 16px;"> R$ <%= @product.price %></p>
             <p><%= @product.description %></p>
             <p>Quantity: <%= @product.available_quantity %> pcs</p>
-            <%= form_tag product_orders_path(@product), method: :create do %>
-              <%= number_field_tag :quantity,
-                params[:quantity]
-              %>
-              <%= submit_tag "Add to basket", class: "btn btn-outline-primary" %>
+            <% if policy(Order).create? %>
+              <%= form_tag product_orders_path(@product), method: :create do %>
+                <%= number_field_tag :quantity,
+                  params[:quantity]
+                %>
+                <%= submit_tag "Add to basket", class: "btn btn-outline-primary" %>
+              <% end %>
             <% end %>
           </div>
         </div>
