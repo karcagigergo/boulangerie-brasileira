@@ -35,6 +35,7 @@ require "json"
   end
 
   def update
+    authorize @product
     @product.update(product_params)
     authorize @product
     redirect_to product_path(@product)
