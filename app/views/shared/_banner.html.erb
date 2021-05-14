@@ -4,7 +4,7 @@
       <div class="container mt-2">
         <p>Hello, <%= current_user.first_name %>!</p>
           <% if policy(Product).create? %>
-            <%= link_to 'New product', new_product_path, class: "btn btn-dark mr-3" %>
+            <%= link_to 'Add your product', new_product_path, class: "btn btn-dark mr-3" %>
           <% end %>
           <% if policy(Basket).show? %>
             <%= link_to 'See my basket', basket_path(current_user.basket), class: "btn btn-dark" %>
