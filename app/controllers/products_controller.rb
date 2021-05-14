@@ -30,18 +30,19 @@ require "json"
   def edit
     @product.photo = nil
     @product.user = current_user
+    authorize @product
     seed
   end
 
   def update
     @product.update(product_params)
-
+    authorize @product
     redirect_to product_path(@product)
   end
 
   def destroy
     @product.destroy
-
+    authorize @product
     redirect_to products_path
   end
 
