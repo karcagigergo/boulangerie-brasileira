@@ -34,8 +34,10 @@
           <%= link_to products_path, title: "Back" do %>
             <i class="fas fa-undo-alt"></i>
           <% end %>
-          <button id="sweet-alert" class="btn btn-outline-danger">D</button>
-            <%= link_to "", product_path(@product), method: :delete, id: "delete-link", class: "hidden" %> 
+          <%# <button id="sweet-alert" class="btn btn-outline-danger">D</button> %>
+            <%= link_to product_path(@product), method: :delete, id: "delete-link", class: "hidden" do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
         </div>
       </div>
     </div>
