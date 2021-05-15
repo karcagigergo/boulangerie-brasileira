@@ -1,15 +1,14 @@
 <div class="banner">
-  <div class="container">
     <% if current_user %>
-      <div class="container mt-2">
+      <div class="container">
+        <p>Welcome on our page!</p>
         <p>Hello, <%= current_user.first_name %>!</p>
-          <% if policy(Product).create? %>
-            <%= link_to 'Add your product', new_product_path, class: "btn btn-dark mr-3" %>
-          <% end %>
-          <% if policy(Basket).show? %>
-            <%= link_to 'See my basket', basket_path(current_user.basket), class: "btn btn-dark" %>
-          <% end %>
+        <% if policy(Product).create? %>
+          <%= link_to 'Add your product', new_product_path, class: "btn btn-dark mt-4" %>
+        <% end %>
+        <% if policy(Basket).show? %>
+          <%= link_to 'See my basket', basket_path(current_user.basket), class: "btn btn-dark mt-4" %>
+        <% end %>
       </div>
     <% end %>
-  </div>
 </div>
