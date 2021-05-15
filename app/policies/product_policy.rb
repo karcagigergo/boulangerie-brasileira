@@ -13,6 +13,10 @@ class ProductPolicy < ApplicationPolicy
     user.role == 'Baker' if user
   end
 
+  def edit
+    record.user == user
+  end
+
   def update?
     record.user == user
     # - record: the restaurant passed to the `authorize` method in controller

@@ -28,9 +28,9 @@ require "json"
   end
 
   def edit
+    authorize @product
     @product.photo = nil
     @product.user = current_user
-    authorize @product
     seed
   end
 
@@ -42,8 +42,8 @@ require "json"
   end
 
   def destroy
-    @product.destroy
     authorize @product
+    @product.destroy
     redirect_to products_path
   end
 

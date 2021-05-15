@@ -6,7 +6,7 @@
           <% if policy(Product).create? %>
             <%= link_to 'Add your product', new_product_path, class: "btn btn-dark mr-3" %>
           <% end %>
-          <% if policy(Basket).show? %>
+          <% if policy(Basket).show? && current_user.basket %>
             <%= link_to 'See my basket', basket_path(current_user.basket), class: "btn btn-dark" %>
           <% end %>
       </div>
