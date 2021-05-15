@@ -1,15 +1,14 @@
 <div class="banner">
-  <div class="container">
     <% if current_user %>
-      <div class="container mt-2">
-        <p>Hello, <%= current_user.first_name %>!</p>
-          <% if policy(Product).create? %>
-            <%= link_to 'Add your product', new_product_path, class: "btn btn-dark mr-3" %>
-          <% end %>
-          <% if policy(Basket).show? %>
-            <%= link_to 'See my basket', basket_path(current_user.basket), class: "btn btn-dark" %>
-          <% end %>
+      <div class="container">
+        <h1 class="mb-5">Welcome to our online platform that allows home bakers to offer traditional baked goods such as breads, cakes, cookies and pastrie!</h1>
+        <h2>Hello, <%= current_user.first_name %>!</h2>
+        <% if policy(Product).create? %>
+          <%= link_to 'Add your product', new_product_path, class: "btn btn-dark mt-4" %>
+        <% end %>
+        <% if policy(Basket).show? %>
+          <%= link_to 'See my basket', basket_path(current_user.basket), class: "btn btn-dark mt-4" %>
+        <% end %>
       </div>
     <% end %>
-  </div>
 </div>

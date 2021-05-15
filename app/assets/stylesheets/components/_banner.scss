@@ -2,17 +2,19 @@
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/QnNqGoCnBg0/1600x900);
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
-  max-height: 600px;
-  margin-top: 40px;
-  min-height: 600px;
-  max-height: 600px;
+  padding: 80px;
 
-  p {
+  h1 {
     font-size: 40px;
     margin: 0;
-    color: #F9BC4F;
+    color: #ffffff;
     text-shadow: 2px 0px 2px rgba(0, 0, 0, 0.8);
-    font-family: 'Pacifico', cursive;
     }
+
+    h2 {
+      font-size: 40px;
+      margin: 0;
+      color: #ffffff;
+      text-shadow: 2px 0px 2px rgba(0, 0, 0, 0.8);
+      }
 }
