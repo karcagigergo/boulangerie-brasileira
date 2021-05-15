@@ -1,7 +1,7 @@
 //CARD-MOVIE(TRIPGENYÓ)
 .card-product {
   overflow: hidden;
-  background: #F8EABB;
+  background: #C8AB8F;
   transition: box-shadow .2s;
   border-radius: 8px;
 
@@ -39,3 +39,10 @@
   box-shadow: none;
 }
 
+#hover-on-products{
+  transition: box-shadow .2s;
+  &:hover {
+    box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.1);
+    font-size:18px;
+  }
+}
