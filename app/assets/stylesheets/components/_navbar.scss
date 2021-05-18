@@ -1,18 +1,15 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background-color:  #DBD0CA;
 
 }
 #link-color-cream {
   color: #7A654F;
-
 }
 
 .navbar-light .navbar-nav .nav-link {
     color: #7A654F;
-    font-size: 24px;
-    padding: 24px;
-
+    font-size: 20px;
+    padding: 20px;
 }
 
 .navbar-light .navbar-nav .nav-link.active {
@@ -21,21 +18,4 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 80px;
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
-  border-radius: 50%
-}
-
-.navbar-lewagon  h1 {
-  font-family: 'Pacifico', cursive;
-  font-weight:lighter;
-  font-size: 56px;
-  color: #7A654F
-}
-
-#navbarDropdown {
-  height:72px;
 }
