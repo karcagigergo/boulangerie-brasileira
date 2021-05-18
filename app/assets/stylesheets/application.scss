@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #BCAB95;
-  background-image: linear-gradient(286deg, #d3ab89 0%, #dbd1cc 100%);
+  background-image: linear-gradient(270deg, #d3ab89 0%, #dbd1cc 100%);
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -31,4 +31,10 @@ a {
   &:hover {
   color: black;
   }
+}
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-weight:lighter;
+  font-size: 40px;
+  color: #7A654F
 }
