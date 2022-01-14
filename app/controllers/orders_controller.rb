@@ -6,12 +6,12 @@ class OrdersController < ApplicationController
   def create
     # if the user has no basket, create one, if user has basket, get the basket id
     current_user.basket ? basket = current_user.basket : basket = Basket.create(user: current_user)
-    order = Order.new
-    order.basket = basket
-    order.product = Product.find(params[:product_id])
-    order.quantity = params[:quantity].to_i
-    authorize order
-    save_on_create
+    @order = Order.new
+    @order.basket = basket
+    @order.product = Product.find(params[:product_id])
+    @order.quantity = params[:quantity].to_i
+    authorize @order
+    create_respond_action
   end
 
   def destroy
@@ -26,11 +26,13 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
-  def save_on_create
-    if order.save
-      redirect_to basket_path(basket)
-    else
-      render 'products/show'
+  def create_respond_action
+    respond_to do |format|
+      if @order.save
+        format.html { redirect_to basket_path(@order.basket) }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 end
