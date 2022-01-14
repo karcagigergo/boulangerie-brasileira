@@ -12,5 +12,4 @@ class OrderPolicy < ApplicationPolicy
   def destroy?
     record.basket.user == user
   end
-
 end

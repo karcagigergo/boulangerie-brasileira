@@ -4,25 +4,14 @@ class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    #has the user a basket already?
-    #if the user has no basket, create one
-    #if user has basket, get the basket id
-    if current_user.basket
-      basket = current_user.basket
-    else
-      basket = Basket.create(user: current_user)
-    end
-
+    # if the user has no basket, create one, if user has basket, get the basket id
+    current_user.basket ? basket = current_user.basket : basket = Basket.create(user: current_user)
     order = Order.new
     order.basket = basket
     order.product = Product.find(params[:product_id])
     order.quantity = params[:quantity].to_i
     authorize order
-    if order.save
-      redirect_to basket_path(basket)
-    else
-      render 'products/show'
-    end
+    save_on_create
   end
 
   def destroy
@@ -31,10 +20,17 @@ class OrdersController < ApplicationController
     redirect_to basket_path(current_user.basket)
   end
 
- private
+  private
 
   def set_orders
     @order = Order.find(params[:id])
   end
 
+  def save_on_create
+    if order.save
+      redirect_to basket_path(basket)
+    else
+      render 'products/show'
+    end
+  end
 end

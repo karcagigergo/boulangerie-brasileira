@@ -5,9 +5,7 @@ class BasketPolicy < ApplicationPolicy
     end
   end
 
-
   def show?
     user.role == 'Customer' if user
   end
-
 end
